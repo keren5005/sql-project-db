@@ -1,4 +1,4 @@
-# SQL Project README
+# SQL Project
 
 ## Overview
 Welcome to the SQL project repository! This project is a part of our degree program and serves as our first exercise in working with SQL databases. In this project, we've designed and implemented a database schema to manage various aspects of a business, including customer information, employee records, sales orders, financial data, and more.
