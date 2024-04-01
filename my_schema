@@ -1,0 +1,95 @@
+CREATE TABLE contact (
+    id INTEGER NOT NULL ,
+    last_name VARCHAR(15) NOT NULL ,
+    first_name VARCHAR(15) NOT NULL ,
+    title VARCHAR(2) NOT NULL ,
+    street VARCHAR(30) NOT NULL ,
+    city VARCHAR(20) NOT NULL ,
+    state VARCHAR(2) NOT NULL ,
+    zip VARCHAR(5) NOT NULL ,
+    phone VARCHAR(10) NULL ,
+    fax VARCHAR(10) NULL ,
+    PRIMARY KEY (id)
+);
+CREATE TABLE customer (
+    id INTEGER NOT NULL ,
+    fname VARCHAR(15) NOT NULL ,
+    lname VARCHAR(20) NOT NULL ,
+    address VARCHAR(35) NOT NULL ,
+    city VARCHAR(20) NOT NULL ,
+    state VARCHAR(2) NOT NULL ,
+    zip VARCHAR(10) NOT NULL ,
+    phone VARCHAR(12) NOT NULL ,
+    company_name VARCHAR(35) NULL ,
+    PRIMARY KEY (id)
+);
+CREATE TABLE department (
+    dept_id INTEGER NOT NULL ,
+    dept_name VARCHAR(40) NOT NULL ,
+    dept_head_id INTEGER NULL, 
+    PRIMARY KEY (dept_id) 
+);
+CREATE TABLE employee (
+    emp_id INTEGER NOT NULL ,
+    manager_id INTEGER NULL ,
+    emp_fname VARCHAR(20) NOT NULL ,
+    emp_lname VARCHAR(20) NOT NULL ,
+    dept_id INTEGER NOT NULL ,
+    street VARCHAR(40) NOT NULL ,
+    city VARCHAR(20) NOT NULL ,
+    state VARCHAR(4) NOT NULL ,
+    zip_code VARCHAR(9) NOT NULL ,
+    phone VARCHAR(10) NULL ,
+    status VARCHAR(1) NULL ,
+    ss_number VARCHAR(11) NOT NULL ,
+    salary NUMERIC(20, 3) NOT NULL ,
+    start_date DATE NOT NULL ,
+    termination_date DATE NULL ,
+    birth_date DATE NULL ,
+    bene_health_ins VARCHAR(1) NULL ,
+    bene_life_ins VARCHAR(1) NULL ,
+    bene_day_care VARCHAR(1) NULL ,
+    sex VARCHAR(1) NULL ,
+    PRIMARY KEY (emp_id)
+);
+CREATE TABLE fin_code (
+    code VARCHAR(2) NOT NULL ,
+    type VARCHAR(10) NOT NULL ,
+    description VARCHAR(50) NULL ,
+    PRIMARY KEY (code) 
+);
+CREATE TABLE fin_data (
+    year VARCHAR(4) NOT NULL ,
+    quarter VARCHAR(2) NOT NULL ,
+    code VARCHAR(2) NOT NULL ,
+    amount NUMERIC(9, 0) NULL ,
+    PRIMARY KEY (year, quarter, code) 
+
+);
+CREATE TABLE product (
+    id INTEGER NOT NULL ,
+    name VARCHAR(15) NOT NULL ,
+    description VARCHAR(30) NOT NULL ,
+    size VARCHAR(18) NOT NULL ,
+    color VARCHAR(6) NOT NULL ,
+    quantity INTEGER NOT NULL ,
+    unit_price NUMERIC(15, 2) NOT NULL ,
+    PRIMARY KEY (id)
+);
+CREATE TABLE sales_order (
+    id INTEGER NOT NULL ,
+    cust_id INTEGER NOT NULL ,
+    order_date DATE NOT NULL ,
+    fin_code_id VARCHAR(2) NULL ,
+    region VARCHAR(7) NULL ,
+    sales_rep INTEGER NOT NULL ,
+    PRIMARY KEY (id)
+);
+CREATE TABLE sales_order_items (
+    id INTEGER NOT NULL ,
+    line_id INTEGER NOT NULL ,
+    prod_id INTEGER NOT NULL ,
+    quantity INTEGER NOT NULL ,
+    ship_date DATE NOT NULL ,
+    PRIMARY KEY (id, line_id)
+);
